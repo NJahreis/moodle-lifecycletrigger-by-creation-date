@@ -15,14 +15,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Life Cycle Time Created Trigger
+ * Lang strings for time created delay trigger
  *
- * @package lifecycletrigger_timecreateddelay
+ * @package    lifecycletrigger_timecreateddelay
  * @copyright  2021 Nikolai Jahreis Universität Bayreuth
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+$string['pluginname'] = 'Creation time delay trigger';
 
-$plugin->version  = 2021030301;
-$plugin->component = 'lifecycletrigger_timecreateddelay';
+$string['delay'] = 'Delay from creation of course until starting a process';
+$string['delay_help'] = 'The trigger will be invoked if the time passed since the course was created is longer than this delay.';

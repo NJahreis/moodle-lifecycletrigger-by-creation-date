@@ -34,7 +34,7 @@ require_once(__DIR__ . '/../../lib.php');
 /**
  * Class which implements the basic methods necessary for a cleanyp courses trigger subplugin
  * @package lifecycletrigger_timecreateddelay
- * @copyright  2021 Tobias Reischmann WWU
+ * @copyright  2021 Nikolai Jahreis Universität Bayreuth
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class timecreateddelay extends base_automatic {
@@ -51,7 +51,7 @@ class timecreateddelay extends base_automatic {
     }
 
     /**
-     * Add sql comparing the current date to the start date of a course in combination with the specified delay.
+     * Add sql comparing the current date to the creation time of a course in combination with the specified delay.
      * @param int $triggerid Id of the trigger.
      * @return array A list containing the constructed sql fragment and an array of parameters.
      * @throws \coding_exception
@@ -59,9 +59,9 @@ class timecreateddelay extends base_automatic {
      */
     public function get_course_recordset_where($triggerid) {
         $delay = settings_manager::get_settings($triggerid, settings_type::TRIGGER)['delay'];
-        $where = "{course}.startdate < :startdatedelay";
+        $where = "{course}.timecreated < :timecreateddelay";
         $params = array(
-            "startdatedelay" => time() - $delay,
+            "timecreateddelay" => time() - $delay,
         );
         return array($where, $params);
     }
@@ -71,7 +71,7 @@ class timecreateddelay extends base_automatic {
      * @return string technical name of the subplugin
      */
     public function get_subpluginname() {
-        return 'startdatedelay';
+        return 'timecreateddelay';
     }
 
     /**
