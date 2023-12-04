@@ -14,16 +14,27 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+namespace lifecycletrigger_timecreateddelay\privacy;
+
+use core_privacy\local\metadata\null_provider;
+
 /**
- * Lang strings for time created delay trigger
+ * Privacy subsystem implementation for lifecycletrigger_timecreateddelay
  *
- * @package    lifecycletrigger_timecreateddelay
- * @copyright  2021 Nikolai Jahreis Universität Bayreuth
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     lifecycletrigger_timecreateddelay
+ * @copyright   2023 Universitaet Bayreuth
+ * @author      Nikolai Jahreis
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+class provider implements null_provider {
 
-$string['pluginname'] = 'Erstellungsdatumsabstand - Trigger';
-$string['privacy:metadata'] = 'Dieses Subplugin speichert keine persönlichen Daten.';
-
-$string['delay'] = 'Zeit seit Erstellung des Kurses, bis ein Prozess gestartet wird';
-$string['delay_help'] = 'Der Trigger wird ausgeführt, falls die Zeit, die seit der Erstellung des Kurses vergangen ist, größer ist, als der angegebene Zeitraum.';
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return string the reason
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}

@@ -23,6 +23,7 @@
  */
 
 $string['pluginname'] = 'Creation time delay trigger';
+$string['privacy:metadata'] = 'This subplugin does not store any personal data.';
 
 $string['delay'] = 'Delay from creation of course until starting a process';
 $string['delay_help'] = 'The trigger will be invoked if the time passed since the course was created is longer than this delay.';
